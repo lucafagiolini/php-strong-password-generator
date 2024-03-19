@@ -1,19 +1,10 @@
 <?php
+
+include 'js/functions.php';
+
 if (isset ($_GET['lenght'])) {
     $length = $_GET['lenght'];
-
-    function generatePassword($length)
-    {
-        $charachters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
-        $password = '';
-        for ($i = 0; $i < $length; $i++) {
-            $password .= $charachters[rand(0, strlen($charachters) - 1)];
-        }
-        return $password;
-    }
-
     $password = generatePassword($length);
-
 }
 ?>
 
@@ -46,7 +37,7 @@ if (isset ($_GET['lenght'])) {
 
 <body data-bs-theme="dark">
     <div class="container">
-        <form id="password_generator_form" method="GET" class="row g-3 d-flex justify-content-center">
+        <form id="password_generator_form" method="GET" class="row g-3 d-flex justify-content-center mt-5">
 
             <div class="col-auto">
                 <label for="lenght" class="col-form-label">Chose a number of characters for your
@@ -56,13 +47,13 @@ if (isset ($_GET['lenght'])) {
                 <input type="number" id="lenght" name="lenght" min="1" required class="form-control"
                     aria-describedby="passwordHelpInline">
                 <button type="submit" value="Generate Password" class="btn btn-primary">Submit</button>
-                <div>
-                    <?php
-                    if (isset ($password)) {
-                        echo "<p>Your generated password is: $password</p>";
-                    }
-                    ?>
-                </div>
+            </div>
+            <div class="d-flex justify-content-center btn-s">
+                <?php
+                if (isset ($password)) {
+                    echo "<p>Your generated password is: $password</p>";
+                }
+                ?>
             </div>
         </form>
     </div>

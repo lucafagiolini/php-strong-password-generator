@@ -1,3 +1,10 @@
+<?php
+if (isset ($_GET['lenght'])) {
+    $length = $_GET['lenght'];
+    echo $password;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,13 +32,20 @@
 
 
 
-<body>
+<body data-bs-theme="dark">
+    <div class="container">
+        <form method="GET" class="row g-3 d-flex justify-content-center">
 
-
-
-
-
-
+            <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">Chose a number of characters for your
+                    password</label>
+            </div>
+            <div class="col-auto">
+                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
 
 
 
